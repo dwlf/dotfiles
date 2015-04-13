@@ -1,0 +1,43 @@
+### 20120524 added own bin to end of path
+export PATH=${PATH}:~/bin
+### 20150309
+export GOPATH=${HOME}/gopath
+### 20150315
+export PATH=${PATH}:${GOPATH}/bin
+
+### 20110224 vi mode
+set -o vi
+
+### 20110224 vim default editor
+export VISUAL=vim
+
+### 20100608 ldb colorize `ls
+export CLICOLOR=auto
+
+### 20150316 joyent
+export SDC_URL=https://us-east-3b.api.joyent.com
+export SDC_ACCOUNT=lloyd.dewolf
+export SDC_KEY_ID=5a:4a:84:32:c4:16:90:f3:0a:9b:dd:1f:d9:87:86:36
+export MANTA_URL=https://us-east.manta.joyent.com
+export MANTA_USER=${SDC_ACCOUNT}
+export MANTA_KEY_ID=${SDC_KEY_ID}
+ # export DOCKER_CERT_PATH=/Users/ll/.sdc/docker/lloyd.dewolf
+ # export DOCKER_HOST=tcp://us-east-3b.docker.joyent.com:2376
+ # alias docker="docker --tls"
+ # alias docker6="./docker-1.6.0-rc5 --tls"
+
+if [ "$(uname)" == "Darwin" ]; then
+
+	### 20150326 mac specific
+	# Shortcuts to the Mac OS Spotlight commands
+	alias f='mdfind -onlyin . -name '
+	alias fs='mdfind -onlyin . '
+	alias fh='mdfind -onlyin ${HOME} -name '
+	alias fhs='mdfind -onlyin ${HOME} '
+
+	### 20100730 mac kaleidoscopeapp.com
+	### svn diff --diff-cmd=ksdiff-svnwrapper
+	alias skdiff='svn diff --diff-cmd=ksdiff-svnwrapper'
+fi
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
