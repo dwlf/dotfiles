@@ -25,8 +25,19 @@ export DOCKER_CERT_PATH=/Users/ll/.sdc/docker/lloyd.dewolf
 export DOCKER_HOST=tcp://us-east-3b.docker.joyent.com:2376
 alias docker="docker --tls"
 
-### 20150423 joyent wrk
+### 20150423 joyent daily
 alias scrum="MANTA_USER=Joyent_Dev;/Users/ll/wrk/engdoc/roadmap/bin/scrum lloyd"
+
+function plan {
+	local today=$(date +"%Y%m%d")
+	cat "/Users/ll/Dropbox/wrk/joyent/scrum/$today-my-scrum";
+}
+
+function morrow {
+	local today=$(date +"%Y%m%d")
+	local tomorrow=$(date -d "+1 day" +"%Y%m%d")
+	vim -O "/Users/ll/Dropbox/wrk/joyent/scrum/$today-my-scrum" "/Users/ll/Dropbox/wrk/joyent/scrum/$tomorrow-my-scrum"
+}
 
 
 if [ "$(uname)" == "Darwin" ]; then
