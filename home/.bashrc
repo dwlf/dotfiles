@@ -21,10 +21,13 @@ export SDC_KEY_ID=5a:4a:84:32:c4:16:90:f3:0a:9b:dd:1f:d9:87:86:36
 export MANTA_URL=https://us-east.manta.joyent.com
 export MANTA_USER=${SDC_ACCOUNT}
 export MANTA_KEY_ID=${SDC_KEY_ID}
- # export DOCKER_CERT_PATH=/Users/ll/.sdc/docker/lloyd.dewolf
- # export DOCKER_HOST=tcp://us-east-3b.docker.joyent.com:2376
- # alias docker="docker --tls"
- # alias docker6="./docker-1.6.0-rc5 --tls"
+export DOCKER_CERT_PATH=/Users/ll/.sdc/docker/lloyd.dewolf
+export DOCKER_HOST=tcp://us-east-3b.docker.joyent.com:2376
+alias docker="docker --tls"
+
+### 20150423 joyent wrk
+alias scrum="MANTA_USER=Joyent_Dev;/Users/ll/wrk/engdoc/roadmap/bin/scrum lloyd"
+
 
 if [ "$(uname)" == "Darwin" ]; then
 
