@@ -26,10 +26,19 @@ export DOCKER_HOST=tcp://us-east-3b.docker.joyent.com:2376
 alias docker="docker --tls"
 
 ### 20150423 joyent daily
-alias scrum="MANTA_USER=Joyent_Dev;/Users/ll/wrk/engdoc/roadmap/bin/scrum lloyd"
+alias scrum="MANTA_USER=Joyent_Dev;/Users/ll/wrk/engdoc/roadmap/bin/scrum"
+alias wip="MANTA_USER=Joyent_Dev;/Users/ll/wrk/engdoc/roadmap/bin/scrum lloyd"
 
+
+# what do I have planned for today.
 function plan {
-	local morrow=$(date +"%Y%m%d")
+	local today=$(date +"%Y%m%d")
+	local numDayOfWeek=$(date +%u)
+	if [[ "$numDayOfWeek" -gt 5 ]]; then
+		# it's the weekend, let's look back at Friday's plan
+		today=$(date -v"$((5-$numDayOfWeek))d" +"%Y%m%d")
+	fi
+	echo "$today"
 	cat "/Users/ll/Dropbox/wrk/joyent/scrum/$today-my-scrum";
 }
 
@@ -44,7 +53,8 @@ function wiped {
 	done
 }
 
-function planned {
+# "Everybody has a plan until they get punched in the mouth." ~Mike Tyson
+function punched {
 	local today=$(date +"%Y%m%d")
 	for i in $(ls -1 "/Users/ll/Dropbox/wrk/joyent/scrum/" | grep -B 10 "$today-my-scrum"); do
 		sed -n -e '/## Planned/,$p' "/Users/ll/Dropbox/wrk/joyent/scrum/$i";
@@ -60,6 +70,7 @@ function morrow {
 	if [[ "$numDayOfWeek" -lt 4 ]]; then
 		nextWorkDay=$(date -v"+1d" +"%Y%m%d")
 	else
+		# Don't play work on weekends.
 		nextWorkDay=$(date -v"+$((8-$numDayOfWeek))d" +"%Y%m%d")
 	fi
 
