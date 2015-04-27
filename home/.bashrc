@@ -29,69 +29,7 @@ alias docker="docker --tls"
 alias scrum="MANTA_USER=Joyent_Dev;/Users/ll/wrk/engdoc/roadmap/bin/scrum"
 alias wip="MANTA_USER=Joyent_Dev;/Users/ll/wrk/engdoc/roadmap/bin/scrum lloyd"
 
-
-# what do I have planned for today.
-function plan {
-	local today=$(date +"%Y%m%d")
-	local numDayOfWeek=$(date +%u)
-	if [[ "$numDayOfWeek" -gt 5 ]]; then
-		# it's the weekend, let's look back at Friday's plan
-		today=$(date -v"$((5-$numDayOfWeek))d" +"%Y%m%d")
-	fi
-	echo "$today"
-	cat "/Users/ll/Dropbox/wrk/joyent/scrum/$today-my-scrum";
-}
-
-
-# Work In ProgresED
-function wiped {
-	local today=$(date +"%Y%m%d")
-	for i in $(ls -1 "/Users/ll/Dropbox/wrk/joyent/scrum/" | grep -B 5 "$today-my-scrum"); do
-		echo "$i";
-		awk '/## Previous/ {flag=1;next} /## Planned/{flag=0} flag {print}' \
-			"/Users/ll/Dropbox/wrk/joyent/scrum/$i";
-	done
-}
-
-# "Everybody has a plan until they get punched in the mouth." ~Mike Tyson
-function punched {
-	local today=$(date +"%Y%m%d")
-	for i in $(ls -1 "/Users/ll/Dropbox/wrk/joyent/scrum/" | grep -B 10 "$today-my-scrum"); do
-		sed -n -e '/## Planned/,$p' "/Users/ll/Dropbox/wrk/joyent/scrum/$i";
-	done
-}
-
-
-function morrow {
-	local today=$(date +"%Y%m%d")
-	local numDayOfWeek=$(date +%u)
-	local weekday=$(date +"%A")
-	local nextWorkDay
-	if [[ "$numDayOfWeek" -lt 4 ]]; then
-		nextWorkDay=$(date -v"+1d" +"%Y%m%d")
-	else
-		# Don't play work on weekends.
-		nextWorkDay=$(date -v"+$((8-$numDayOfWeek))d" +"%Y%m%d")
-	fi
-
-	local morrowScrumFile="/Users/ll/Dropbox/wrk/joyent/scrum/$nextWorkDay-my-scrum"
-
-	if [[ ! -f "$morrowScrumFile" ]]; then
-		cat << EOF > $morrowScrumFile
-mood:
-
-## Accomplished ${weekday}, ${today}
--
--
-
-## Planned For ${nextWorkDay}
--
--
-EOF
-	fi
-	vim -O "/Users/ll/Dropbox/wrk/joyent/scrum/$today-my-scrum" "$morrowScrumFile"
-}
-
+source ~/.bash.d/joyent-wip
 
 if [ "$(uname)" == "Darwin" ]; then
 
