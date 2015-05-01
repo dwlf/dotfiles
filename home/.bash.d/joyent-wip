@@ -31,7 +31,7 @@ function wiped {
         local today=$(date +"%Y%m%d")
         for i in $(ls -1 "/Users/ll/Dropbox/wrk/joyent/scrum/" | grep -B 5 "$today-my-scrum"); do
                 echo "$i";
-                awk '/### Previous/ {flag=1;next} /### Planned/{flag=0} flag {print}' \
+                awk '/### Accomplished/ {flag=1;next} /### Planned/{flag=0} flag {print}' \
                         "/Users/ll/Dropbox/wrk/joyent/scrum/$i";
         done
 }
@@ -43,6 +43,9 @@ function punched {
                 sed -n -e '/### Planned/,$p' "/Users/ll/Dropbox/wrk/joyent/scrum/$i";
         done
 }
+
+# waiting on from other people, but not currently blocking my focus
+alias wait-for-it="vi /Users/ll/Dropbox/wrk/joyent/scrum/fill-out-a-request-form"
 
 
 function morrow {
