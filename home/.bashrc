@@ -23,7 +23,7 @@ export MANTA_USER=${SDC_ACCOUNT}
 export MANTA_KEY_ID=${SDC_KEY_ID}
 export DOCKER_CERT_PATH=/Users/ll/.sdc/docker/lloyd.dewolf
 export DOCKER_HOST=tcp://us-east-3b.docker.joyent.com:2376
-alias docker="docker --tls"
+export DOCKER_TLS_VERIFY=1
 
 ### 20150423 joyent daily
 alias scrum="MANTA_USER=Joyent_Dev;/Users/ll/wrk/engdoc/roadmap/bin/scrum"
