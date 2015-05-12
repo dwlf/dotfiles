@@ -44,6 +44,10 @@ function punched {
         done
 }
 
+# these mind worms should still be cooking on the stove. If they
+# are not they should be moved to task management.
+alias mind-worms="vi /Users/ll/Dropbox/wrk/joyent/scrum/back-burner"
+
 # waiting on from other people, but not currently blocking my focus
 alias wait-for-it="vi /Users/ll/Dropbox/wrk/joyent/scrum/fill-out-a-request-form"
 
