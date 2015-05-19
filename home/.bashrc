@@ -14,6 +14,10 @@ export VISUAL=vim
 ### 20100608 ldb colorize `ls
 export CLICOLOR=auto
 
+### home directory application configuration SCM management
+### https://github.com/andsens/homeshick/
+source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+
 ### 20150316 joyent
 export SDC_URL=https://us-east-3b.api.joyent.com
 export SDC_ACCOUNT=lloyd.dewolf
