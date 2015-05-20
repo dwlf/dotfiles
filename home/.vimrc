@@ -22,9 +22,12 @@ Plug 'scrooloose/nerdtree'
 Plug 'fatih/vim-go'
 " 20150308 gocode is included in fatih/vim-go so commenting out
 " Plug 'nsf/gocode', { 'rtp': 'vim' }
+
 " ------ markdown------
 """ 20150303 the buildin syntax underlines internal underscores, ex  x86_64
 Plug 'tpope/vim-markdown'
+""" npm -g install instant-markdown-d first
+Plug 'suan/vim-instant-markdown'
 
 call plug#end()
 
