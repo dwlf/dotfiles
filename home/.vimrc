@@ -1,9 +1,12 @@
 call plug#begin()
+
 Plug 'tpope/vim-sensible'
 
 " ---- asthetic ----
+" http://ethanschoonover.com/solarized
 Plug 'altercation/vim-colors-solarized'
 "Plug 'tomasr/molokai'
+" https://github.com/powerline/fonts
 Plug 'bling/vim-airline'
 
 " ---- navigation ----
@@ -18,6 +21,7 @@ Plug 'scrooloose/nerdtree'
 "Plug 'xolox/vim-misc' " Needed for easytags.
 "Plug 'xolox/vim-easytags'
 "Plug 'majutsushi/tagbar'
+
 " ------ golang ------
 Plug 'fatih/vim-go'
 " 20150308 gocode is included in fatih/vim-go so commenting out
