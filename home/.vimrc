@@ -4,6 +4,9 @@ Plug 'tpope/vim-sensible'
 
 " ---- asthetic ----
 " http://ethanschoonover.com/solarized
+" I have one OS X 10.9 env. Terminal.app color palette encoding is different
+" in this version.
+" 10.9: https://github.com/joeploijens/dotfiles/tree/master/terminal
 Plug 'altercation/vim-colors-solarized'
 "Plug 'tomasr/molokai'
 " https://github.com/powerline/fonts
@@ -52,6 +55,7 @@ let &colorcolumn=join(range(73,999),",")
 " -------- altercation/vim-colors-solarized settings --------
 "  Toggle this to 'light' for light colorscheme
 """set background=light
+let g:solarized_termcolors=16
 set background=dark
 
 " Set the colorscheme
