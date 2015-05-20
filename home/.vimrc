@@ -35,7 +35,8 @@ call plug#end()
 autocmd Filetype go setlocal ts=3 sw=3 sts=0 noexpandtab
 
 """ http://stackoverflow.com/questions/2447109/showing-a-different-background-colour-in-vim-past-80-characters
-""" let &colorcolumn=join(range(81,999),",")
+" 20150519 72 is my line length.
+let &colorcolumn=join(range(73,999),",")
 
 
 " ---- Plugin Specific Settings ----
