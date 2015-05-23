@@ -1,5 +1,7 @@
 " Markdown file type specific settings
 
+" Line lengths inspired by PEP 0008 -- Style Guide for Python Code
+
 setlocal textwidth=72
 " That will automatically wrap text as close to 72 characters as white
 " space allows without exceeding the 72 character limit. This option
