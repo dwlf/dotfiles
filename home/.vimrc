@@ -31,7 +31,7 @@ Plug 'fatih/vim-go'
 " Plug 'nsf/gocode', { 'rtp': 'vim' }
 
 " ------ markdown------
-""" 20150303 the buildin syntax underlines internal underscores, ex  x86_64
+" buildin syntax underlines internal underscores, ex x86_64
 Plug 'tpope/vim-markdown'
 """ npm -g install instant-markdown-d first
 Plug 'suan/vim-instant-markdown'
@@ -44,8 +44,8 @@ call plug#end()
 
 autocmd Filetype go setlocal ts=3 sw=3 sts=0 noexpandtab
 
-""" http://stackoverflow.com/questions/2447109/showing-a-different-background-colour-in-vim-past-80-characters
-" 20150519 72 is my line length.
+" http://stackoverflow.com/questions/2447109/showing-a-different-background-colour-in-vim-past-80-characters
+" 72 is my line length.
 let &colorcolumn=join(range(73,999),",")
 
 
