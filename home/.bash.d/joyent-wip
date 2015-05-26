@@ -22,7 +22,8 @@ function plan {
                 today=$(date --date="last Fri" +"%Y%m%d")
         fi
         echo "$today"
-        cat "/Users/ll/Dropbox/wrk/joyent/scrum/$today-my-scrum";
+        echo "/Users/ll/Dropbox/wrk/joyent/scrum/$today-my-scrum"
+        cat "/Users/ll/Dropbox/wrk/joyent/scrum/$today-my-scrum"
 }
 
 
@@ -51,6 +52,47 @@ alias mind-worms="vi /Users/ll/Dropbox/wrk/joyent/scrum/back-burner"
 # waiting on from other people, but not currently blocking my focus
 alias wait-for-it="vi /Users/ll/Dropbox/wrk/joyent/scrum/fill-out-a-request-form"
 
+# my-scrum for the next scrum
+# * If after 09:30 PT then scrumming for the next day.
+# * If the weekend, then scrum for Monday.
+function my-scrum {
+	isGNUDate
+        if [[ $? -ne 0 ]]; then
+                echo "Install GNU Date as date command."
+		echo "    ln -s /usr/local/bin/gdate /usr/local/bin/date"
+                return 1  # abort
+        fi
+	local force;
+	if [ "$1" == "-f" ]; then
+		force="-f"
+	fi
+	local tz=$(date '+%Z')
+	if [[ tz -ne 'PDT' ]]; then
+		echo 'Playing safe. Might need to update for PST.'
+		echo 'And definitely for other timezones.'
+                return 1  # abort
+	fi
+        local today=$(date '+%Y%m%d')
+	local t=$(date '+%H%M')
+        local numDayOfWeek=$(date '+%u')
+        local nextWorkDay
+	local daysAway
+        if [[ "$numDayOfWeek" -gt 5 ]]; then
+                # it's the weekend, scrumming for Monday.
+                nextWorkDay=$(date --date='next Mon' '+%Y%m%d')
+		daysAway=8-$numDayOfWeek
+	elif [[ "$t" < '0930' ]]; then
+		# then scrumming for today
+                nextWorkDay=$(date '+%Y%m%d')
+		daysAway=0
+	else
+		# then scrumming for tomorrow
+                nextWorkDay=$(date --date='next day' '+%Y%m%d')
+		daysAway=1
+        fi
+	echo "MANTA_USER=Joyent_Dev;~/wrk/engdoc/roadmap/bin/scrum $force -d $daysAway -u lloyd < /Users/ll/Dropbox/wrk/joyent/scrum/$nextWorkDay-my-scrum"
+	$(MANTA_USER=Joyent_Dev;~/wrk/engdoc/roadmap/bin/scrum "$force" -d "$daysAway" -u lloyd < /Users/ll/Dropbox/wrk/joyent/scrum/"$nextWorkDay"-my-scrum)
+}
 
 function morrow {
 	isGNUDate
@@ -59,7 +101,7 @@ function morrow {
 		echo "    ln -s /usr/local/bin/gdate /usr/local/bin/date"
 		return 1  # abort
 	fi
-        local today=$(date +"%Y%m%d")
+        local today=$(date '+%Y%m%d')
         local numDayOfWeek=$(date +%u)
         local weekday=$(date +"%A")
         local nextWorkDay
