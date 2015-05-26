@@ -1,0 +1,27 @@
+[alias]
+	nccommit = commit -a --allow-empty-message -m \"\"
+	tree = log --graph --decorate --pretty=oneline --abbrev-commit
+# https://golang.org/doc/contribute.html
+	change = codereview change
+	gofmt = codereview gofmt
+	mail = codereview mail
+	pending = codereview pending
+	submit = codereview submit
+	sync = codereview sync
+[user]
+	email = foolswisdom@gmail.com
+	name = Lloyd Dewolf
+[push]
+	default = simple
+[core]
+	excludesfile = /Users/ll/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /opt/homebrew-cask/Caskroom/sourcetree/2.0.2/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[http]
+	cookiefile = /Users/ll/.gitcookies
+[ghq]
+	root = /Users/ll/gopath/src/
