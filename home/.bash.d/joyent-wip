@@ -78,16 +78,20 @@ function my-scrum {
         local nextWorkDay
 	local daysAway
         if [[ "$numDayOfWeek" -gt 5 ]]; then
-                # it's the weekend, scrumming for Monday.
+                # it's the weekend, scrumming for Monday
                 nextWorkDay=$(date --date='next Mon' '+%Y%m%d')
 		daysAway=8-$numDayOfWeek
 	elif [[ "$t" < '0930' ]]; then
-		# then scrumming for today
+		# then stil time to scrum for today
                 nextWorkDay=$(date '+%Y%m%d')
 		daysAway=0
+	elif [[ "$numDayOfWeek" -eq 5 ]]; then
+		# it's Friday and after 9:30, scrumming for Monday
+               	nextWorkDay=$(date --date='next Mon' '+%Y%m%d')
+		daysAway=8-$numDayOfWeek
 	else
-		# then scrumming for tomorrow
-                nextWorkDay=$(date --date='next day' '+%Y%m%d')
+		# scrumming for tomorrow
+               	nextWorkDay=$(date --date='next day' '+%Y%m%d')
 		daysAway=1
         fi
 	echo "MANTA_USER=Joyent_Dev;~/wrk/engdoc/roadmap/bin/scrum $force -d $daysAway -u lloyd < /Users/ll/Dropbox/wrk/joyent/scrum/$nextWorkDay-my-scrum"
@@ -105,7 +109,7 @@ function morrow {
         local numDayOfWeek=$(date +%u)
         local weekday=$(date +"%A")
         local nextWorkDay
-        if [[ "$numDayOfWeek" -lt 4 ]]; then
+        if [[ "$numDayOfWeek" -lt 5 ]]; then
                 nextWorkDay=$(date --date="next day" +"%Y%m%d")
         else
                 # Don't play work on weekends.
