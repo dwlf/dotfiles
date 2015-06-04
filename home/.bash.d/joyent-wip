@@ -52,10 +52,10 @@ alias mind-worms="vi /Users/ll/Dropbox/wrk/joyent/scrum/back-burner"
 # waiting on from other people, but not currently blocking my focus
 alias wait-for-it="vi /Users/ll/Dropbox/wrk/joyent/scrum/fill-out-a-request-form"
 
-# my-plan for the next "scrum"
+# share-plan for the next "scrum"
 # * If after 09:30 PT then scrumming for the next day.
 # * If the weekend, then scrum for Monday.
-function my-plan {
+function share-plan {
 	isGNUDate
         if [[ $? -ne 0 ]]; then
                 echo "Install GNU Date as date command."
