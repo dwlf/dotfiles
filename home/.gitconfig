@@ -8,6 +8,7 @@
 	pending = codereview pending
 	submit = codereview submit
 	sync = codereview sync
+	restore-file = !git checkout $(git rev-list -n 1 HEAD -- "$1")^ -- "$1"
 [user]
 	email = foolswisdom@gmail.com
 	name = Lloyd Dewolf
