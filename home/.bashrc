@@ -28,26 +28,26 @@ export MANTA_USER=${SDC_ACCOUNT}
 export MANTA_KEY_ID=${SDC_KEY_ID}
 
 function e3b {
-    export DOCKER_CERT_PATH=/Users/ll/.sdc/docker/lloyd.dewolf
+    export DOCKER_CERT_PATH=${HOME}/.sdc/docker/lloyd.dewolf
     export SDC_URL=https://us-east-3b.api.joyent.com
     export DOCKER_HOST=tcp://us-east-3b.docker.joyent.com:2376
     export DOCKER_TLS_VERIFY=1
 }
 function e1 {
-    export DOCKER_CERT_PATH=/Users/ll/.sdc/docker/lloyd.dewolf
+    export DOCKER_CERT_PATH=${HOME}/.sdc/docker/lloyd.dewolf
     export SDC_URL=https://us-east-1.api.joyent.com
     export DOCKER_HOST=tcp://us-east-1.docker.joyent.com:2376
     export DOCKER_TLS_VERIFY=1
 }
 function s1 {
-    export DOCKER_CERT_PATH=/Users/ll/.sdc/docker/lloyd.dewolf
+    export DOCKER_CERT_PATH=${HOME}/.sdc/docker/lloyd.dewolf
     export SDC_URL=https://us-sw-1.api.joyent.com
     export DOCKER_HOST=tcp://us-sw-1.docker.joyent.com:2376
     export DOCKER_TLS_VERIFY=1
 }
 
-alias scrum="MANTA_USER=Joyent_Dev;/Users/ll/wrk/engdoc/roadmap/bin/scrum"
-alias wip="MANTA_USER=Joyent_Dev;/Users/ll/wrk/engdoc/roadmap/bin/scrum lloyd"
+alias scrum="MANTA_USER=Joyent_Dev;${HOME}/wrk/engdoc/roadmap/bin/scrum"
+alias wip="MANTA_USER=Joyent_Dev;${HOME}/wrk/engdoc/roadmap/bin/scrum lloyd"
 
 source ~/.bash.d/joyent-wip
 
