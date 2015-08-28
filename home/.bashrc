@@ -45,6 +45,18 @@ function s1 {
     export DOCKER_HOST=tcp://us-sw-1.docker.joyent.com:2376
     export DOCKER_TLS_VERIFY=1
 }
+function staging-1 {
+    export SDC_URL=https://172.26.3.11
+    export SDC_TESTING=1
+    export DOCKER_CERT_PATH=${HOME}/.sdc/docker/lloyd.dewolf
+    export DOCKER_HOST=tcp://us-sw-1.docker.joyent.com:2376
+    export DOCKER_TLS_VERIFY=1
+}
+
+function thothenv {
+    export MANTA_USER=thoth
+    export THOTH_USER=thoth
+}
 
 alias scrum="MANTA_USER=Joyent_Dev;${HOME}/wrk/engdoc/roadmap/bin/scrum"
 alias wip="MANTA_USER=Joyent_Dev;${HOME}/wrk/engdoc/roadmap/bin/scrum lloyd"
