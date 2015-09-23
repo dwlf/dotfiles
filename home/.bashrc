@@ -77,8 +77,11 @@ if [ "$(uname)" == "Darwin" ]; then
 	# Date Added
 	alias lsadded='find . -depth 1 -exec mdls -name kMDItemFSName -name kMDItemDateAdded "{}" \; | sed -e "s/^kMDItemFSName    = \"\(.*\)\"/ \1/g" | sed "N;s/\n//" | sed -e "s/(null)/0000-00-00 00:00:00 +0000/g" | '"awk '{print \$3 \" \" \$4 \" \" substr(\$0,index(\$0,\$6))}'"
 
-
 	# mac kaleidoscopeapp.com
 	# svn diff --diff-cmd=ksdiff-svnwrapper
 	alias skdiff='svn diff --diff-cmd=ksdiff-svnwrapper'
+
+	if [ -f $(brew --prefix)/etc/bash_completion ]; then
+		. $(brew --prefix)/etc/bash_completion
+	fi
 fi

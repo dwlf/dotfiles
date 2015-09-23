@@ -1,0 +1,131 @@
+#!/usr/bin/env bash
+#
+# Bash completion generated for triton
+# Wed Sep 23 2015 16:04:28 GMT-0700 (PDT)
+#
+
+_triton_default_words() {
+	# main command
+	local words=(
+--help
+-h
+--version
+--verbose
+-v
+--profile
+-p
+--account
+-a
+--keyId
+-k
+--url
+-u
+-J
+--insecure
+-i
+help
+info
+account
+whoami
+keys
+services
+datacenters
+create-instance
+create
+instances
+insts
+instance
+inst
+instance-audit
+audit
+start-instance
+start
+stop-instance
+stop
+reboot-instance
+reboot
+delete-instance
+delete
+wait-instance
+wait
+ssh
+images
+imgs
+image
+img
+packages
+pkgs
+package
+pkg
+networks
+network
+	)
+	echo "${words[*]}"
+}
+
+_triton_words() {
+	local cmd=$1
+	local curword=${COMP_WORDS[COMP_CWORD]}
+	if [[ $cmd == "$curword" ]]; then
+		COMPREPLY=($(compgen -W "$(_triton_default_words)" -- "$curword"))
+		return
+	fi
+
+	case "$cmd" in
+'help') words=();;
+'info') words=(--help -h --json -j);;
+'account') words=(--help -h --json -j);;
+'whoami') words=(--help -h --json -j);;
+'keys') words=(--help -h --json -j);;
+'services') words=(--help -h -H -o -s --json -j);;
+'datacenters') words=(--help -h -H -o -s --json -j);;
+'create-instance') words=(--help -h --name -n --dry-run --wait -w --json -j);;
+'create') words=(--help -h --name -n --dry-run --wait -w --json -j);;
+'instances') words=(--help -h -H -o --long -l -s --json -j);;
+'insts') words=(--help -h -H -o --long -l -s --json -j);;
+'instance') words=(--help -h --json -j);;
+'inst') words=(--help -h --json -j);;
+'instance-audit') words=(--help -h -H -o --long -l -s --json -j);;
+'audit') words=(--help -h -H -o --long -l -s --json -j);;
+'start-instance') words=(--help -h --wait -w);;
+'start') words=(--help -h --wait -w);;
+'stop-instance') words=(--help -h --wait -w);;
+'stop') words=(--help -h --wait -w);;
+'reboot-instance') words=(--help -h --wait -w);;
+'reboot') words=(--help -h --wait -w);;
+'delete-instance') words=(--help -h --wait -w);;
+'delete') words=(--help -h --wait -w);;
+'wait-instance') words=(--help -h --states -s);;
+'wait') words=(--help -h --states -s);;
+'ssh') words=(--help -h);;
+'images') words=(--help -h --all -a -H -o --long -l -s --json -j);;
+'imgs') words=(--help -h --all -a -H -o --long -l -s --json -j);;
+'image') words=(--help -h --json -j);;
+'img') words=(--help -h --json -j);;
+'packages') words=(--help -h -H -o --long -l -s --json -j -p);;
+'pkgs') words=(--help -h -H -o --long -l -s --json -j -p);;
+'package') words=(--help -h --json -j);;
+'pkg') words=(--help -h --json -j);;
+'networks') words=(--help -h -H -o --long -l -s --json -j);;
+'network') words=(--help -h --json -j);;
+	*) words=($(_triton_default_words)) ;;
+	esac
+
+	COMPREPLY=($(compgen -W "${words[*]}" -- "$curword"))
+}
+
+_triton() {
+	local i word
+	for ((i = 1; i <= COMP_CWORD; i++)); do
+		word=${COMP_WORDS[i]}
+		if ((i < COMP_CWORD)) && [[ ${word:0:1} == '-' ]]; then
+			continue
+		fi
+		_triton_words "$word"
+		break
+	done
+
+}
+
+complete -o default -F _triton triton
+
