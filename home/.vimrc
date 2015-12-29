@@ -42,6 +42,8 @@ call plug#end()
 
 " ---- General Settings ----
 
+autocmd Filetype text setlocal copyindent
+autocmd Filetype conf setlocal copyindent
 autocmd Filetype go setlocal ts=3 sw=3 sts=0 noexpandtab
 
 " http://stackoverflow.com/questions/2447109/showing-a-different-background-colour-in-vim-past-80-characters
