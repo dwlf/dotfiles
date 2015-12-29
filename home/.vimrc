@@ -46,6 +46,9 @@ autocmd Filetype text setlocal copyindent
 autocmd Filetype conf setlocal copyindent
 autocmd Filetype go setlocal ts=3 sw=3 sts=0 noexpandtab
 
+highlight nonascii guibg=Red ctermbg=1 term=standout
+au BufReadPost * syntax match nonascii "[^\u0000-\u007F]"
+
 " http://stackoverflow.com/questions/2447109/showing-a-different-background-colour-in-vim-past-80-characters
 " 72 is my line length.
 let &colorcolumn=join(range(73,999),",")
