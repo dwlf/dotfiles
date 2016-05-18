@@ -32,3 +32,9 @@
 	cookiefile = /Users/ll/.gitcookies
 [ghq]
 	root = /Users/ll/gopath/src/
+[branch]
+	autosetupmerge = true
+# Causing problems with go prepare in Go 1.4
+#[url "git@github.com:"]
+	# prefer ssh to github over https
+#insteadOf = https://github.com/
