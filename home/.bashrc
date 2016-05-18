@@ -1,8 +1,6 @@
 export PATH=${PATH}:~/bin
 export GOPATH=${HOME}/gopath
 export PATH=${PATH}:${GOPATH}/bin
-# Add Ruby RVM to PATH for scripting
-export PATH="$PATH:$HOME/.rvm/bin"
 
 # bash vi mode
 set -o vi
