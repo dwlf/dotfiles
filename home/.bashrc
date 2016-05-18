@@ -15,6 +15,8 @@ export CLICOLOR=auto
 # https://github.com/andsens/homeshick/
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
+# https://github.com/rupa/z/
+. `brew --prefix`/etc/profile.d/z.sh
 
 # ---- Joyent ----
 
