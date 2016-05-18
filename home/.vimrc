@@ -62,7 +62,7 @@ au BufReadPost * syntax match nonascii "[^\u0000-\u007F]"
 "  Toggle this to 'light' for light colorscheme
 """set background=light
 let g:solarized_termcolors=16
-set background=dark
+set background=light
 
 " Set the colorscheme
 colorscheme solarized
