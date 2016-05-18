@@ -1,4 +1,4 @@
-export PATH=${PATH}:~/bin
+export PATH=~/bin:${PATH}
 export GOPATH=${HOME}/gopath
 export PATH=${PATH}:${GOPATH}/bin
 
