@@ -25,6 +25,9 @@
 [mergetool "sourcetree"]
 	cmd = /opt/homebrew-cask/Caskroom/sourcetree/2.0.2/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[help]
+	# automatically run a misspelled git command if there's only one suggestion
+	autocorrect = 1
 [http]
 	cookiefile = /Users/ll/.gitcookies
 [ghq]
