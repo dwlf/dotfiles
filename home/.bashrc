@@ -21,7 +21,17 @@ source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
 
 # ---- Apcera ----
+
 source ~/.bash.d/apcera-wip
+
+export GOPATH="$HOME/go"
+export BUILDROOT="$HOME/go"
+export PATH="$BUILDROOT/bin:$PATH"
+export PKG_CONFIG_PATH=$BUILDROOT/bin/openssl/lib/pkgconfig:$PKG_CONFIG_PATH
+
+# Go < 1.5 often needs GOBIN set
+[[ $(go version) == *"1.4.2"* ]] && export GOBIN=${GOPATH}/bin
+
 
 # ---- Joyent ----
 
