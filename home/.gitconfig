@@ -13,7 +13,7 @@
 	email = foolswisdom@gmail.com
 	name = Lloyd Dewolf
 [push]
-	default = simple
+	default = current
 [core]
 	excludesfile = /Users/ll/.gitignore_global
 [difftool "sourcetree"]
