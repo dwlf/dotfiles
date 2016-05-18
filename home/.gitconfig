@@ -14,6 +14,9 @@
 	name = Lloyd Dewolf
 [push]
 	default = current
+[color]
+	# color things when sending output to a terminal
+	ui = true
 [core]
 	excludesfile = /Users/ll/.gitignore_global
 [difftool "sourcetree"]
