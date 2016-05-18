@@ -91,6 +91,9 @@ if [ "$(uname)" == "Darwin" ]; then
 	# Date Added
 	alias lsadded='find . -depth 1 -exec mdls -name kMDItemFSName -name kMDItemDateAdded "{}" \; | sed -e "s/^kMDItemFSName    = \"\(.*\)\"/ \1/g" | sed "N;s/\n//" | sed -e "s/(null)/0000-00-00 00:00:00 +0000/g" | '"awk '{print \$3 \" \" \$4 \" \" substr(\$0,index(\$0,\$6))}'"
 
+	# Tab complete Download on download.
+	bind "set completion-ignore-case on"
+	bind "set show-all-if-ambiguous on"
 
 	if [ -f $(brew --prefix)/etc/bash_completion ]; then
 		. $(brew --prefix)/etc/bash_completion
