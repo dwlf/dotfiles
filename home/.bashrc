@@ -19,6 +19,10 @@ source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 # https://github.com/rupa/z/
 . `brew --prefix`/etc/profile.d/z.sh
 
+
+# ---- Apcera ----
+source ~/.bash.d/apcera-wip
+
 # ---- Joyent ----
 
 export SDC_ACCOUNT=lloyd.dewolf
@@ -62,7 +66,6 @@ function thothenv {
 alias scrum="MANTA_USER=Joyent_Dev;${HOME}/wrk/engdoc/roadmap/bin/scrum"
 alias wip="MANTA_USER=Joyent_Dev;${HOME}/wrk/engdoc/roadmap/bin/scrum lloyd"
 
-source ~/.bash.d/joyent-wip
 
 
 # ---- OS Specific ----
