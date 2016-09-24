@@ -76,7 +76,7 @@ function thothenv {
 alias scrum="MANTA_USER=Joyent_Dev;${HOME}/wrk/engdoc/roadmap/bin/scrum"
 alias wip="MANTA_USER=Joyent_Dev;${HOME}/wrk/engdoc/roadmap/bin/scrum lloyd"
 
-
+for f in ~/.bash.d/*; do source $f; done
 
 # ---- OS Specific ----
 

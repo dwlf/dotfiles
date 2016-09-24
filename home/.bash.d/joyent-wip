@@ -11,7 +11,7 @@ function isGNUDate {
 function plan {
 	isGNUDate
         if [[ $? -ne 0 ]]; then
-                echo "Install GNU Date as date command."
+		echo "Install GNU Date (coreutils) as date command."
 		echo "    ln -s /usr/local/bin/gdate /usr/local/bin/date"
                 return 1  # abort
         fi
