@@ -18,7 +18,7 @@
 	# color things when sending output to a terminal
 	ui = true
 [core]
-	excludesfile = /Users/ll/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
