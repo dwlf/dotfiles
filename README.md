@@ -19,3 +19,8 @@ I `brew install homeshick`. The default macOS `.profile` does not reference `.ba
 Once you've installed and sourced `homeshick` add this repository:
 
     homeshick clone https://github.com/lloydde/dotfiles
+
+## Related
+
+* My [mac-preferences](https://github.com/lloydde/mac-preferences/)
+
