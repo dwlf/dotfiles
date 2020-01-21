@@ -10,11 +10,7 @@ This project uses the [homesick][]'s `bash` implementation [homeshick][]
 
 ## First home(shick) on a computer
 
-As this is most often my first homeshick on a computer, here is how I install `homeshick`:
-
-    git clone git://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
-
-The default macOS `.profile` does not reference `.bashrc`, and as I'm replacing these files anyway, so I'll just source it directly:
+I `brew install homeshick`. The default macOS `.profile` does not reference `.bashrc`, and as I'm replacing these files anyway, so I'll just source it directly:
 
     source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
